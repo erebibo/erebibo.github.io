@@ -44,7 +44,7 @@ var selfieButton = document.getElementById('selfieButton');
   fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
   var name = document.getElementById("name").value
-  var storageRef = firebase.storage().ref('ids/'+name+"/"+file.name);
+  var storageRef = firebase.storage().ref('ids/'+name+".jpg");
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
 
@@ -59,7 +59,7 @@ var selfieButton = document.getElementById('selfieButton');
 selfieButton.addEventListener('change', function(e){
   var file = e.target.files[0];
   var name = document.getElementById("name").value
-  var storageRef = firebase.storage().ref('images/'+name+"/"+file.name);
+  var storageRef = firebase.storage().ref('images/'+name+".jpg");
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
 
