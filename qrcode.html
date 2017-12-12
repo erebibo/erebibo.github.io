@@ -6,7 +6,7 @@
         <script type="text/javascript">
             function generateBarCode(){
                 var nric = getParameterByName('id')
-                var url = 'http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&amp;chl=' + nric + '&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|0';
+                var url = 'http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&amp;chl=' + nric + '.jpg&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|0';
                 $('#barcode').attr('src', url);
             }
 
