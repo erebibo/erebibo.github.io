@@ -4,17 +4,25 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script type="text/javascript">
-            function generateBarCode()
-            {
-                var nric = $('#text').val();
-                
+            function generateBarCode(){
+                var nric = getParameterByName('id', 'https://erebibo.github.io/qrcode.html?id=estee.png')
                 var url = 'http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&amp;chl=' + nric + '&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|0';
                 $('#barcode').attr('src', url);
             }
-        </script>
+
+        function getParameterByName(name, url) {
+             if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+       </script>
 </head>
-<body>
-    
+
+<body onload="generateBarCode()">
     <div class = "row">
         
         <div class = "col-md-6">
@@ -22,18 +30,10 @@
         </div>
 
     </div>
-    
-    <div class = "row">
-        <div class = "col-md-12">
-         <input id="text" type="text" 
-            value="Name" style="Width:20%"
-            onblur='generateBarCode();' /> 
-        </div>
-    </div>
    
     <div class = "row">
         <div class="col-md-4  col-sm-4 text-center col2 hidden-xs hidden-xs">
-            <img id = 'barcode' style="width:268!important" src="http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&amp;chl=estee.png&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|0" alt="" class="prevImg">
+            <img id = 'barcode' style="width:268!important" src="" alt="" class="prevImg">
               
         </div>
         
