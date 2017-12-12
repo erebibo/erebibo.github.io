@@ -1,6 +1,16 @@
 
 <html>
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            function generateBarCode()
+            {
+                var nric = $('#text').val();
+                
+                var url = 'http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&amp;chl=' + nric + '&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|0';
+                $('#barcode').attr('src', url);
+            }
+        </script>
 </head>
 <body>
     
@@ -11,13 +21,21 @@
         </div>
 
     </div>
+    
+    <div class = "row">
+        <div class = "col-md-12">
+         <input id="text" type="text" 
+            value="Name" style="Width:20%"
+            onblur='generateBarCode();' /> 
+        </div>
+    </div>
    
     <div class = "row">
-
         <div class="col-md-4  col-sm-4 text-center col2 hidden-xs hidden-xs">
-            <img style="width:268!important" src="http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&amp;chl=estee.png&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|0" alt="" class="prevImg">
+            <img id = 'barcode' style="width:268!important" src="http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&amp;chl=estee.png&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|0" alt="" class="prevImg">
+              
         </div>
-
+        
     </div>
 
 
