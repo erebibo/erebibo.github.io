@@ -2,8 +2,8 @@ public class Column{
   String name; 
   int index; 
   int totalColumns; 
-  int min = NUMBER.MAX_VALUE;   
-  int max = NUMBER.MIN_VALUE; 
+  int min = Number.MAX_VALUE;   
+  int max = Number.MIN_VALUE; 
   boolean isClicked = false; 
 
   
