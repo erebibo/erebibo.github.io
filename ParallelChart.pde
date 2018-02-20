@@ -72,21 +72,21 @@ public class ParallelChart{
   
   public void checkHoverOverLines(){
     int spacing = width/(columns.length); 
-    ArrayList<String> text = new ArrayList<String>(); 
+    ArrayList<String> fullText = new ArrayList<String>(); 
     for(int i = 0; i <columns.length-1; i++){
       float colX = i*spacing; 
       //find column where mouse is between
       if (mouseX >= colX && mouseX <= colX+spacing){
         for (Row row: rows){
           if (row.doesMouseIntersect(i, i+1)){
-            text.add(row.toString()); 
+            fullText.add(row.toString()); 
           }
         }
       }
      
       float X = mouseX; 
       float Y = mouseY; 
-      for (String t : text){
+      for (String t : fullText){
         fill(0,0,0); 
         textSize(12); 
         text(t, X, Y, textWidth(t)/2, 50); 
