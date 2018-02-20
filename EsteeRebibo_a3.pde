@@ -2,7 +2,7 @@ ParallelChart p;
 
 void setup(){
   size(600,600); 
-  surface.setResizable(true);
+  //surface.setResizable(true);
   loadData(); 
   p.drawColumnLabels(); 
   p.drawCurves(); 
