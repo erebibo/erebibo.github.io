@@ -1,7 +1,10 @@
 public class ParallelChart{
   Row[]rows; 
   Column[] columns;
-  Box box = new Box(); 
+  Box box = null; 
+  Column clickedColumn = null; 
+  ArrayList<Row> hoveredRows = new ArrayList<Row>(); 
+  ArrayList<Row> intersectingRows = new ArrayList<Row>(); 
   
   public ParallelChart(String[]data){
     String[]cols = split(data[0], ','); 
@@ -26,106 +29,144 @@ public class ParallelChart{
       
   }
   public void drawCurves(){
+   
+   if (box != null && box.shouldDraw) { 
+     implementBoxDrawn(); 
+   }
+   else if (hoveredRows.size() != 0){
+       implementHovering(); 
+   }
+   else if (clickedColumn != null){
+    implementColumnClicked(); 
+   }
+   else {
+      implementNoEffect();  
+    }
     for (int i = 0; i<rows.length; i++){
       rows[i].drawLines(); 
+    }
+    if (box != null && box.shouldDraw){
+      box.drawBox(); 
+      for (Row rb : intersectingRows){
+        rb.drawLines(); 
+      }
+    }
+    else if (hoveredRows.size() != 0){
+       for (Row hr : hoveredRows){
+        hr.drawLines(); 
+      }
+       implementHoverToolTip(); 
     }
   }
  
   public void drawColumnLabels(){
-    int spacing = width/(columns.length); 
     for (int i = 0; i <columns.length; i++){
-      columns[i].drawColumn(spacing, i); 
+      columns[i].drawColumn(); 
     }
   }
   
-  public void checkColumnClicked(){
-    clearClickedColumn(); 
-    int spacing = width/(columns.length); 
+  public boolean checkColumnClicked(){
+   
     for (int i = 0; i<columns.length; i++){
         Column col = columns[i]; 
-        float columnX = i*spacing; 
-        if (mouseX <= columnX+5 && mouseX >= columnX-5){
-          col.isClicked = true; 
+        if (col.isColumnClicked()){
+          clickedColumn = col; 
+          return true; 
         }
+       }
+       return false; 
     }
-     for(Row r : rows){
-          r.setColorBasedOnCol();
-    }
-  }
   
-  public void clearClickedColumn(){
-    for(Column col : columns){
-        col.isClicked = false; 
-    }
-  }
-  
-  public void checkFlipOrientation(){
+  public boolean checkFlipOrientation(){
     int spacing = width/(columns.length); 
     for (int i = 0; i<columns.length; i++){
         Column col = columns[i]; 
-        float columnX = i*spacing; 
+        float columnX = col.getX(); 
         if (mouseX <= columnX+spacing && mouseX >= columnX && mouseY <= 40){
            col.switchOrientation();  
+           return true; 
         }
     }
+    return false; 
   }
   
-  public void checkHoverOverLines(){
-    int spacing = width/(columns.length); 
-    ArrayList<String> fullText = new ArrayList<String>(); 
+  public boolean checkHoverOverLines(){ 
+   
+    ArrayList<Row> foundRows = new ArrayList<Row>(); 
     for(int i = 0; i <columns.length-1; i++){
-      float colX = i*spacing; 
-      //find column where mouse is between
-      if (mouseX >= colX && mouseX <= colX+spacing){
+      float colX = columns[i].getX(); 
+      if (mouseX >= colX && mouseX <= columns[i+1].getX()){
         for (Row row: rows){
           if (row.doesMouseIntersect(i, i+1)){
-            fullText.add(row.toString()); 
+            foundRows.add(row); 
           }
         }
       }
-     
-      float X = mouseX; 
-      float Y = mouseY; 
-      for (String t : fullText){
-        fill(0,0,0); 
-        textSize(12); 
-        text(t, X, Y, textWidth(t)/2, 50); 
-        Y+= 50; 
-      }
     }
-    
-  }
-  public void drawBox(){
-    box.drawBox();
-    int spacing = width/(columns.length); 
-    int colStartIndex = -1; 
-    int colEndIndex = -1; 
-    for(int i = 0; i <columns.length-1; i++){
-      float colX = i*spacing; 
-      //find column where mouse is between
-      if (box.x1 >= colX && box.x1 <= colX+spacing){
-        colStartIndex = i; 
-       }
-       if (box.x2 >= colX && box.x2 <= colX+spacing){
-        colEndIndex = i; 
-       }
-    }
-    if (colStartIndex != -1){
-    for (Row row: rows){
-          row.doesIntersectBox(box, colStartIndex, colEndIndex); 
-        }
-    }
-  }
-  public void startBox(){
-    box.x1 =  mouseX; 
-    box.y1 = mouseY;  
-    box.x2 =  mouseX; 
-    box.y2 = mouseY; 
+    hoveredRows = foundRows; 
+    return hoveredRows.size() > 0 ; 
   }
   
+  public void implementNoEffect(){
+    for (Row r: rows){
+      r.resetColor(); 
+    }
+  }
+  public void implementColumnClicked(){
+    for (Row r: rows){
+      r.setColorBasedOnCol(clickedColumn); 
+    }
+  }
+   public void implementHovering(){
+    for (Row r: rows){
+      r.setColorNotHovering(); 
+    }
+    for (Row rh: hoveredRows){
+      rh.setColorHovering(); 
+    }
+  }
+  public void implementBoxDrawn(){
+    for (Row r: rows){
+      r.setColorNotHovering(); 
+    }
+    for (Row ri: intersectingRows){
+      ri.setColorBoxIntersect(); 
+    }
+  }
+  public void implementHoverToolTip(){
+    float X = mouseX+15; 
+      float Y = mouseY+15; 
+      for (Row r : hoveredRows){
+        String t = r.toString(); 
+        fill(0,0,0); 
+        textSize(14); 
+        text(t, X, Y); 
+        Y+= 20; 
+    }
+  }
+  
+  public void startBox(){
+     box = new Box(); 
+    box.x1 = mouseX; 
+    box.y1 = mouseY; 
+  }
+  public void outlineBox(){
+    box.shouldDraw = true; 
+     box.x2 = mouseX; 
+    box.y2 = mouseY; 
+  }
   public void updateBox(){
-    box.x2 = mouseX; 
-    box.y2 = mouseY;
+    box.finalizeBoxDimensions(); 
+    for (Row r: rows){
+      if (box.doesIntersectLine(r)){
+        intersectingRows.add(r); 
+      }
+    }
+  }
+  
+  public void deleteBox(){
+    box = null; 
+    intersectingRows = new ArrayList<Row>(); 
   }
   
 }
