@@ -1,7 +1,7 @@
 ParallelChart p; 
 
 void setup(){
-  size(displayWidth, displayHeight);
+  size(600,600);
   loadData(); 
   p.drawColumnLabels(); 
   p.drawCurves(); 
