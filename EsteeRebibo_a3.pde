@@ -1,8 +1,7 @@
 ParallelChart p; 
 
 void setup(){
-  size(600,600); 
-  //surface.setResizable(true);
+  size(800,800); 
   loadData(); 
   p.drawColumnLabels(); 
   p.drawCurves(); 
@@ -12,27 +11,30 @@ void draw(){
   background(255,255,255); 
   p.drawColumnLabels(); 
   p.drawCurves(); 
-   //p.drawBox();
-  p.checkHoverOverLines(); 
-   
 }
 
 void loadData(){
   String[] loadedData = loadStrings("data.csv");
-   p = new ParallelChart(loadedData);
+   p = new ParallelChart(loadedData);  
 }
 
 void mouseClicked(){
-  p.checkFlipOrientation();
-  p.checkColumnClicked();  
+ p.deleteBox(); 
+ if (!p.checkFlipOrientation()){
+  p.checkColumnClicked(); 
+ }
+}
+
+void mouseMoved(){
+  p.checkHoverOverLines(); 
 }
 void mousePressed(){
+  p.deleteBox();
    p.startBox(); 
 }
 void mouseDragged(){
-  p.updateBox(); 
+  p.outlineBox(); 
 }
-
 void mouseReleased(){
-  
+  p.updateBox(); 
 }
