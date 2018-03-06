@@ -40,7 +40,7 @@
 
           //parse map 
           var psv = d3.dsvFormat("|");
-          d3.request("/data/usMap.txt")
+          d3.request("data/usMap.txt")
          .mimeType("text/plain")
          .response(function(xhr) { return psv.parse(xhr.responseText) })
          .get(function(data) {
