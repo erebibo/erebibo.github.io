@@ -8,8 +8,8 @@
             div.tooltip {   
                 position: absolute;         
                 text-align: left;         
-                width: 230px;                    
-                height: 60px;                   
+                width: 300px;                    
+                height: 600px;                   
                 padding: 2px;               
                 font: 12px sans-serif;      
                 background: white;    
@@ -206,20 +206,6 @@
                         .attr("font-size", "13px")
                         .attr("fill", "grey")
                         .attr("text-allign", "left");
-                  
-                  /**
-                    tiles = svg.selectAll("rect").data(data, function(d){ return d.Year; }); 
-                    tiles.exit().remove(); 
-                    tiles.enter().append("rect")
-                    .attr("x", function(d, i){ console.log("jer");  return i*21; })
-                    .attr("y", function(d, i){  return d.Year-1900; })
-                    .attr("width", 20)
-                    .attr("height", 20)
-                    .attr("fill", function(d){ 
-                        if (d.D_Percentage > d.R_Percentage){  return "blue"; } 
-                        else {return "red"; }
-                     });
-                     **/
 
                       });
 
