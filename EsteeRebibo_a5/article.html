@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<head>
+	
+	 <script src="d3.v4.js"></script>
+	 <link rel='stylesheet' id='all-css-0' href='https://techcrunch.com/wp-content/themes/techcrunch-2017/build/css/main.css?m=1522258508g' type='text/css' media='all' />
+  <style> 
+            div.tooltip {   
+                position: absolute;         
+                text-align: left; 
+                left: 300px;        
+                width: auto; 
+                height: auto;                   
+                padding: 2px;               
+                font: 16px sans-serif;      
+                background: white;    
+                border-width: 2px; 
+                border-style: solid;  
+                            
+                pointer-events: none;           
+            }
+            div .overview{
+            	color: #008C00;
+            }
+
+        </style>
+</head>
+
+<body>
+<div id="root">
+<div class="desktop-nav" style="top: 0px; height: 619px;"><div class="desktop-nav__header"><div class="logo"><a href="/"><svg width="60px" height="30px" viewBox="0 0 60 30" version="1.1" style="display: block;"><title>TechCrunch</title><g mask="url(#tc-logo)"><rect x="0" y="0" width="60" height="30" fill="#fff"></rect><rect id="logo-gradient" class="navigation__logo-gradient" x="0" y="0" width="60" height="30" fill="url(#tc-gradient)"></rect></g></svg></a></div></div><div class="desktop-nav__body"><ul class="menu navigation__main-menu"><li class="menu__item "><a href="/startups/">Startups</a></li><li class="menu__item "><a href="/apps/">Apps</a></li><li class="menu__item "><a href="/gadgets/">Gadgets</a></li><li class="menu__item "><a href="/events/">Events</a></li><li class="menu__item "><a href="/video/">Videos</a></li><li class="menu__item "><a href="/2018/03/24/hip-hop-finds-its-beat-in-the-startup-scene/">—</a></li><li class="menu__item "><a href="http://crunchbase.com">Crunchbase</a></li><li class="menu__item "><a href="/2018/03/24/hip-hop-finds-its-beat-in-the-startup-scene/">More</a></li></ul><div class="search-field"><label for="nav-search-field">Search<svg class="icon icon--search icon--grey " viewBox="0 0 20 20" version="1.1" aria-labelledby="title"><title>search</title><g><ellipse cx="9.1" cy="8.7" rx="7" ry="7.2"></ellipse><path d="M18.9,18.7l-4.7-4.8"></path></g></svg></label></div><ul class="menu navigation__trending-topics"><li class="menu__item "><a href="/tag/dropbox/">Dropbox</a></li><li class="menu__item "><a href="/tag/mark-zuckerberg/">Mark Zuckerberg </a></li><li class="menu__item "><a href="/developer/">Developer </a></li><li class="menu__item "><a href="/tag/y-combinator/">Y Combinator </a></li></ul></div><div class="desktop-nav__footer"><p class="navigation__login-links"><a href="//oidc.techcrunch.com/login/?spec_id=usernameregwithbusinessdata&amp;dest=https%3A%2F%2Ftechcrunch.com%2F2018%2F03%2F24%2Fhip-hop-finds-its-beat-in-the-startup-scene%2F">Login</a> <span class="text--green">/</span> <a href="//oidc.techcrunch.com/create/?spec_id=usernameregwithbusinessdata&amp;dest=https%3A%2F%2Ftechcrunch.com%2F2018%2F03%2F24%2Fhip-hop-finds-its-beat-in-the-startup-scene%2F">Sign up</a></p></div></div>
+	<div style><!-- duplicate React-root div for styling -->
+	<div class="content">
+		<article class=" ">
+			<header class="article__header ">
+	<div class="article__title-wrapper">
+						<h1 class="article__title">Hip hop finds its beat in the startup scene</h1>
+		</div>
+
+			<div class="article__byline-wrapper">
+			
+<div class="article__byline">
+			<a href="https://techcrunch.com/author/jglasner/">
+			Joanna Glasner		</a>
+		<span class="article__byline__meta">
+	        			11 hours		</span>
+	</div>
+		</div>
+	
+			<div class="article__featured-image-wrapper breakout">
+			
+		</div>
+	</header>
+
+			<div >
+				
+<div class="article__contributor-byline">
+	<div class="contributor-byline__contributor">
+		<div class="byline__author">
+							<span class="byline__author-name">Joanna Glasner</span>
+						<span class="byline__author-title" style="display: block;">Contributor</span>
+		</div>
+
+			</div>
+
+		<div class="contributor-byline__bio">
+		<a href="https://www.crunchbase.com/person/joanna-glasner#/entity">Joanna Glasner</a> is a reporter for <a href="https://www.crunchbase.com/">Crunchbase</a>.	</div>
+	
+		<div class="contributor-byline__more-articles">
+		<span class="more-articles-title">More posts by this contributor</span>
+		<ul class="more-articles-list">
+						<li><a href="https://techcrunch.com/2018/02/24/what-does-it-take-to-be-a-startup-that-raises-huge-sums-quickly/">What does it take to be a startup that raises huge sums quickly?</a></li>
+						<li><a href="https://techcrunch.com/2017/06/24/not-a-minimalist-startups-will-gladly-store-manage-and-deliver-your-items/">Not a minimalist? Startups will gladly store, manage and deliver your items</a></li>
+					</ul>
+	</div>
+	</div>
+
+<p>Hip hop stars are taking their reputations to Wall Street and Sand Hill road.</p>
+<p>Unlike their rock star brethren, who’ve historically <a href="https://news.crunchbase.com/news/rockstars-party-mcs-invest">been disinterested in dabbling with startups</a>, quite a few hip hop artists have amassed good-sized portfolios. They’ve seen a few big hits too, most recently including a massive up round for zero-commission stock trading platform <a href="https://www.crunchbase.com/organization/analyst">Robinhood</a>, which counted Jay-Z, Nas and Snoop Dogg among its earlier backers.</p>
+<p>But just how deep does the hip hop-startup relationship go and where is it headed? To shed some light on that question, we put together a review of <a class="crunchbase-link" href="https://www.crunchbase.com/organization/crunchbase/" target="_blank" data-type="organization" data-entity="crunchbase">Crunchbase <span class="crunchbase-tooltip-indicator"></span></a> data on the startup investment activity of famous musicians. We looked at both hip hop and pop stars, culling a <a href="https://www.crunchbase.com/lists/hip-hop-pop-artists-and-startups/39ad2bc5-35e2-46ab-b7d6-6307659b62bb/identifiers">list of 21</a> artists who are either active investors or have joined one or more rounds in recent years.</p>
+
+<div class = "d3area"/></div>
+<p>The general conclusion: Artists are doing more deals, raising more funds and backing more companies that graduate to up rounds and exits. Here are a few examples:</p>
+<ul>
+<li>Besides getting a slice of Robinhood, <a href="https://www.crunchbase.com/person/shawn-carter-jay-z">Jay-Z</a> and his entertainment company, <a href="https://www.crunchbase.com/organization/roc-nation">Roc Nation</a>, also saw an early portfolio company, flight club startup <a href="https://www.crunchbase.com/organization/jetsmarter">JetSmarter</a>, go on to raise financing a year ago at a reported valuation more than $1.5 billion. Roc Nation also made headlines this week for investing in <a href="http://joinpromise.com/">Promise</a>, a startup providing alternatives to incarceration for people who can’t afford bail.</li>
+<li><a href="https://www.crunchbase.com/organization/queensbridge-venture-partners#section-overview">QueensBridge Venture Partners</a>, the investment fund co-founded by <a href="https://www.crunchbase.com/person/nasir-bin-olu-dara-jones">Nas</a>, was an early-stage investor in video doorbell maker <a href="https://www.crunchbase.com/organization/ring">Ring</a>, which Amazon just bought for $1.1 billion. The firm could also see some paper gains this week in the much-anticipated market debut of <a href="https://www.crunchbase.com/organization/dropbox">Dropbox</a>, which it backed in a 2014 Series C round. In addition, QueensBridge participated in a $25 million Series B round for cryptocurrency trading platform <a href="https://www.crunchbase.com/organization/coinbase">Coinbase </a>back in 2013. Coinbase’s last reported valuation was around $1.6 billion.</li>
+<li><a href="https://www.crunchbase.com/organization/casa-verde-capital#section-overview">Casa Verde Capital</a>, a cannabis-focused venture fund co-founded by <a href="https://www.crunchbase.com/person/snoop-dogg">Snoop Dogg</a>, has closed its debut fund with $45 million. Just this week it backed a $3.5 million round for vape manufacturer <a href="https://www.crunchbase.com/organization/green-tank-technologies">Green Tank</a>.</li>
+</ul>
+<p>That’s not to say everything a star touches turns multi-platinum. We found quite a few flops in their portfolios and assembled a list here of <a href="https://www.crunchbase.com/lists/star-backed-flops/fbe9eeee-58d1-4d49-826e-4f09c97dc2f0/identifiers">10 startups now shuttered</a> that counted a hip hop or pop star among their backers.</p>
+	<div class="article-block block--pullout block--center">
+		<blockquote>
+			Becoming and remaining famous requires many of the same skills and qualities as running an entrepreneurial venture, including an exceptional degree of tenacity.					</blockquote>
+	</div>
+	
+<p>Of course, flops are part of life for early-stage investors, so there’s no reason we’d expect celebrities to be an exception. Moreover, most of the now-shuttered companies were not heavily capitalized by venture standards.</p>
+<p>However, there are some higher-profile or more heavily funded companies on the flop list. One is <a href="https://www.crunchbase.com/organization/washio#section-overview">Washio</a>, a laundry delivery service, which raised $17 million from Nas and 20 other investors before hanging itself out to dry in 2016. Another is <a href="https://www.crunchbase.com/organization/viddy">Viddy</a>, an app for shooting and sharing video clips backed by Roc Nation.</p>
+<h2>Why the rich, hip and famous like startups</h2>
+<p>A number of venture pundits and pop culture mavens have previously pontificated why celebrities, and hip hop stars in particular, are drawn to startups.</p>
+<p>One possibility is that rap music and startups resemble each other at the earliest stages, <a href="http://3daystartup.org/blog/2014/05/06/ive-got-99-problems-but-a-pitch-aint-one-what-entrepreneurs-can-learn-from-rap-music/">postulates</a> Cam Houser, CEO of the 3 Day Startup Program. Rap music starts with a rapper and a producer. This duality, he says, is similar to the beginning stages of a startup, which commonly also brings together two people, a business and a technical co-founder.</p>
+<p>Rap and startup entrepreneurship are also both longshot career tracks that <a href="https://salon.thefamily.co/hip-hop-startups-a-tale-of-two-oddly-parallel-worlds-3a71c6587059">celebrate raw ambition</a> and unabashed self-promotion. To make it, however, both require an excellent grasp of what sells in the real world.</p>
+<p>Branding is perhaps the most common rationale provided for the celebrity-startup connection. With their massive fan bases, swooning coverage and millions of social media followers, celebrities can certainly help get the word out about a new product or app. That said, the attention usually works only if said product also has compelling attributes of its own.</p>
+<p>One of the less controversial explanations is that becoming and remaining famous requires many of the same skills and qualities as running an entrepreneurial venture, including an exceptional degree of tenacity.</p>
+<p>It’s also true that in venture capital and the music business, it’s the hits that matter. It helps that we’re seeing plenty of those.<span style="font-size: 1.125rem; letter-spacing: -0.1px;"> </span></p>
+			</div>
+
+			<footer class="article-footer">
+									<input title="Article Shortlink" class="shortlink" readOnly type="text" value="" />
+							</footer>
+		</article>
+	</div>
+		</div><!-- end React-root duplication div -->
+</div><!--end #root-->
+	<!-- JSON-LD -->
+
+
+<script type="text/javascript">
+
+	      //used https://bl.ocks.org/hrecht/f84012ee860cb4da66331f18d588eee3 for guide on horizontal bar chart
+
+          var marginLeft = 110; 
+          var marginRight = 20; 
+          var marginTop = 30; 
+          var marginBottom = 30; 
+          var width = 850-marginLeft-marginRight; 
+          var height = 500-marginTop - marginBottom;  
+          var investors; 
+          var investments;    
+          var svg = d3.select(".d3area").append("svg")
+          .attr("width", function(d){ console.log("here"); return width+marginRight+marginLeft; })
+          .attr("height", height+marginBottom+marginTop)
+          .append("g") 
+          .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+           svg.append("g").attr("transform", "translate("+marginRight+","+height+")").attr("class","xaxis");
+           svg.append("g").attr("transform", "translate("+marginRight+",0)").attr("class","yaxis");
+			svg.append("text")
+                .text("Investment Size in ($K)")
+                .attr("x", (width/2))
+                .attr("y", (height+marginBottom))
+                .style("font-size", "20px");
+                
+                svg.append("text")
+                .text("Artist vs Investment Amount")
+                .attr("x", width/2+"px")
+                .attr("y", 0)
+                .attr("class", "yaxisLabel")
+                .style("font-size", "20px")
+                .style("text-anchor", "middle");
+
+
+          var tooltip = d3.select("body").append("div")   
+                .attr("class", "tooltip")               
+                .style("opacity", 0);
+
+          d3.csv("/data/investments.csv", function(data){
+                
+
+                data.forEach(function(d){
+                	
+                   d.ID = +d.ID; 
+                   d.Investor_ID = +d.Investor_ID; 
+                  
+                   d.Numeric_Investment_Size = d.Investment_Size.replace("$", ""); 
+                   if(d.Investment_Size.includes("M")){
+                   	d.Numeric_Investment_Size = d.Numeric_Investment_Size.replace("M", ""); 
+                   	d.Numeric_Investment_Size = +d.Numeric_Investment_Size; 	
+                   	d.Numeric_Investment_Size = d.Numeric_Investment_Size*1000; 
+                   }
+                   else if (d.Investment_Size.includes("K")){
+                   	d.Numeric_Investment_Size = d.Numeric_Investment_Size.replace("K", ""); 
+                   	d.Numeric_Investment_Size = +d.Numeric_Investment_Size; 	
+                   	d.Numeric_Investment_Size = d.Numeric_Investment_Size*100; 
+                   }
+                   else {
+                   	d.Numeric_Investment_Size = 0; 
+                   }
+
+                }); 
+                investments = data; 
+			}); 
+             d3.csv("/data/investors.csv", function(data){
+              
+                data.forEach(function(d){
+                    d.ID = +d.ID; 
+                    d.Number_Portfolio_Companies = +d.Number_Portfolio_Companies; 
+                    d.Number_Exits = +d.Number_Exits; 
+                    var a = []; 
+                    var totalInvestment = 0; 
+                    for (var i = 0; i < investments.length; i++){
+                    	if (investments[i].Investor_ID == d.ID){
+                    		a.push(investments[i]); 
+                    		totalInvestment += investments[i].Numeric_Investment_Size; 
+                    	}
+                   		d.Investments = a; 
+                    	d.Total_Invesmtment_Amount = totalInvestment; 
+                    } 
+                }); 
+                  investors = data; 
+                makeOverviewTable(data); 
+                
+			});
+
+	function makeOverviewTable(data){
+
+                
+        
+                var minX = d3.min(data, function(d){ return d.Total_Invesmtment_Amount; }); 
+                var maxX = d3.max(data, function(d){ return d.Total_Invesmtment_Amount; }); 
+                
+                var xscale = d3.scaleLinear()
+                .domain([minX, maxX])
+                .range([0, width]); 
+                
+                var yscale = d3.scaleBand()
+            	.domain(data.map(function (d) {
+                return d.Investor_Name;
+            	}))
+            	.range([height, 0])
+            	.paddingInner(0.1);
+
+            	var xaxis = d3.axisBottom(xscale).tickSize(0); 
+                var yaxis = d3.axisLeft(yscale).tickSize(0); 
+         		
+         		var x = svg.selectAll("rect").data(data, function(d){ return d.Investor_Name; })
+         
+          		x.exit().remove(); 
+          		x.enter().append("rect")
+                .attr("x", marginRight)
+                .attr("y", function(d){return yscale(d.Investor_Name); })
+                .attr("width", function(d){
+                	if (d.Total_Invesmtment_Amount<2000){
+                		return xscale(2000); 
+                	}
+                	return xscale(d.Total_Invesmtment_Amount); 
+                })
+                .attr("id", function(d){ return d.Investor_Name; })
+                .attr("height", function(d){
+                	return  yscale.bandwidth(); 
+                })
+                 .attr("fill", function(d){ 
+                    return "#008C00"; 
+                })
+                 .attr("class", "bar")
+                 .on("mouseover", function(d){
+              
+                 	//  .attr("y", function(d, i){ return 500; })
+                 	var html = "<div class = overview> Total Companies: "+d.Number_Portfolio_Companies + " Total Exits: "+d.Number_Exits+"</div>";  
+                 	for (var i = 0; i < d.Investments.length;i++){
+                 		var inv = d.Investments[i]; 
+                 		html += inv.Company_Name + ": "+inv.Investment_Size+'<br/>'; 
+                 	}
+                 	 tooltip.html(html)
+                 	.style("left", d3.event.pageX+"px")
+                 	.style("top", d3.event.pageY+"px")
+                     .style("opacity", 1.0); 
+                 })
+                 .on("mouseout", function(d){
+                 	tooltip.style("opacity", 0); 
+                 })
+                 .on("click", function(d){
+                 	tooltip.style("opacity", 0); 
+                 	makeIndividualInvestmentTable(d); 
+             });
+           
+             
+
+                svg.select(".yaxisLabel")
+                .text("Artists vs Investments (based on Cruchbase list)")
+                .style("text-anchor", "middle")
+                .attr("x", width/2 + "px");
+
+                svg.select(".xaxis").attr("transform", "translate("+marginRight+","+height+")").call(xaxis);
+                svg.select(".yaxis").attr("transform", "translate("+marginRight+",0)").call(yaxis);
+               
+	}
+
+	function makeIndividualInvestmentTable(data, shownData){
+				var inv = data.Investments; 
+		 		var minX = d3.min(inv, function(d){ return d.Numeric_Investment_Size; }); 
+                var maxX = d3.max(inv, function(d){ return d.Numeric_Investment_Size; }); 
+                
+                var xscale = d3.scaleLinear()
+                .domain([0, maxX])
+                .range([0, width]); 
+                
+                var yscale = d3.scaleBand()
+            	.domain(inv.map(function (d) {
+                return d.Company_Name;
+            	}))
+            	.range([height, 0])
+            	.paddingInner(0.1);
+
+            	var xaxis = d3.axisBottom(xscale).tickSize(0); 
+                var yaxis = d3.axisLeft(yscale).tickSize(0); 
+
+                 
+          		var x = svg.selectAll("rect").data(inv, function(d){ return d.Company_Name; })
+         
+          		x.exit().remove(); 
+          		x.enter().append("rect")
+                .attr("x", marginRight)
+                .attr("y", function(d){return yscale(d.Company_Name); })
+                .attr("width", function(d){
+                	return xscale(d.Numeric_Investment_Size); 
+                })
+                .attr("height", function(d){
+                	return  yscale.bandwidth(); 
+                })
+                 .attr("fill", function(d){ 
+                    return "#008C00"; 
+                })
+               .on("mouseover", function(d){
+                 	var html = d.Investment_Size; 
+                 	 tooltip.html(html)
+                 	.style("left", d3.event.pageX+"px")
+                 	.style("top", d3.event.pageY+"px")
+                     .style("opacity", 1.0); 
+                 })
+                 .on("mouseout", function(d){
+                 	tooltip.style("opacity", 0); 
+                 }); 
+                
+                svg.append("text")
+                .text("BACK")
+                .attr("x", 0)
+                .attr("y", 0)
+                .style("text-anchor", "end")
+                .on("click", function(d){
+                	makeOverviewTable(investors);
+                	this.innerHTML = "";
+                }); 
+
+                svg.select(".yaxisLabel")
+                .text(data.Investor_Name + "'s Investments")
+                .style("text-anchor", "middle")
+                .attr("x", width/2 + "px");
+                svg.select(".xaxis").attr("transform", "translate("+marginRight+","+height+")").call(xaxis);
+                svg.select(".yaxis").attr("transform", "translate("+marginRight+",0)").call(yaxis); 
+	} 
+          
+</script>
+	</body>
+</html>

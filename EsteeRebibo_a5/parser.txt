@@ -1,0 +1,10 @@
+Parse for investments: 
+
+var txt = ""; var moneys = document.getElementsByClassName("field-type-money"); var j = 1; var id = 77; for (var i = 0; i < document.getElementsByClassName("identifier-label").length; i= i+2){ txt = txt + id + ", 17, "+document.getElementsByClassName("identifier-label")[i].innerHTML.trim() + ", "+moneys[j].innerHTML.trim()+"\n"; j++; id++; console.log(j)} console.log(txt); 
+
+Parse for investor images: 
+
+
+sanky diagram: 
+	by investor: number/size of investments, number/size of exits, year of investment
+	by company: type of company, total funding, number of funders (celebrity?), number of funding rounds, 
