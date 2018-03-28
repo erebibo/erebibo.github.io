@@ -152,7 +152,7 @@
                 .attr("class", "tooltip")               
                 .style("opacity", 0);
 
-          d3.csv("/data/investments.csv", function(data){
+          d3.csv("https://erebibo.github.io/EsteeRebibo_a4/data/investments.csv", function(data){
                 
 
                 data.forEach(function(d){
@@ -178,7 +178,7 @@
                 }); 
                 investments = data; 
 			}); 
-             d3.csv("/data/investors.csv", function(data){
+             d3.csv("https://erebibo.github.io/EsteeRebibo_a4/data/investors.csv", function(data){
               
                 data.forEach(function(d){
                     d.ID = +d.ID; 
@@ -245,10 +245,7 @@
               
                  	//  .attr("y", function(d, i){ return 500; })
                  	var html = "<div class = overview> Total Companies: "+d.Number_Portfolio_Companies + " Total Exits: "+d.Number_Exits+"</div>";  
-                 	for (var i = 0; i < d.Investments.length;i++){
-                 		var inv = d.Investments[i]; 
-                 		html += inv.Company_Name + ": "+inv.Investment_Size+'<br/>'; 
-                 	}
+                 	
                  	 tooltip.html(html)
                  	.style("left", d3.event.pageX+"px")
                  	.style("top", d3.event.pageY+"px")
